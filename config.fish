@@ -4,6 +4,8 @@ switch (uname);
 
 		# until fish 2.2, we'll have to do this
 		set PATH (brew --prefix)/bin $PATH
+	case *
+		set -x EDITOR "vim"
 end
 
 complete -f -c git -n '__fish_git_using_command pull' -l ff-only -d 'Refuse to merge unless fast-forward possible'
