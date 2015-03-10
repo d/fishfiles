@@ -4,7 +4,7 @@ switch (uname);
 
 		# until fish 2.2, we'll have to do this
 		set PATH (brew --prefix)/bin $PATH
-	case *
+	case '*'
 		set -x EDITOR "vim"
 end
 
