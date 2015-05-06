@@ -14,4 +14,5 @@ complete -c git -n '__fish_git_using_command commit' -s v -l verbose -d 'Show di
 complete -c git -n '__fish_git_using_command commit' -s a -l all -d 'Commit all changed files'
 complete -f -c git -n '__fish_git_using_command log' -l decorate -a 'short full no'
 
-set PATH ~/.rbenv/shims $PATH
+set -x GOPATH ~/.local/go
+set PATH $GOPATH/bin ~/.rbenv/shims $PATH
