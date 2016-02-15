@@ -1,9 +1,6 @@
 switch (uname);
 	case Darwin
 		set -x GIT_EDITOR "mvim -f"
-
-		# until fish 2.2, we'll have to do this
-		set PATH (brew --prefix)/bin $PATH
 	case '*'
 		set -x EDITOR "vim"
 end
