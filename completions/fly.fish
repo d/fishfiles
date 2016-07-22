@@ -48,10 +48,18 @@ function __fish_fly_hijack
 	end
 end
 
+function __fish_fly_needs_command
+	if [ (count (commandline -opc)) -lt 4 ]
+		return 0
+	else
+		return 1
+	end
+end
+
 complete --exclusive --command fly --long-option target --arguments '(__fish_fly_targets)' --description "Concourse target name"
 complete --command fly --long-option help --description "Show this help message"
 complete --command fly --long-option version --description "Print the version of Fly and exit"
-complete --command fly --no-files --condition '__fish_fly_targeted' --arguments '(__fish_fly_commands)'
+complete --command fly --no-files --condition '__fish_fly_targeted; and __fish_fly_needs_command' --arguments '(__fish_fly_commands)'
 
 complete --command fly --condition '__fish_fly_hijack' --long-option job --description 'Name of a job to hijack'
 complete --command fly --condition '__fish_fly_hijack' --long-option check --description "Name of a resource's checking container to hijack"
