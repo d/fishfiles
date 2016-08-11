@@ -68,3 +68,11 @@ complete --command fly --condition '__fish_fly_using_command hijack' --long-opti
 complete --command fly --condition '__fish_fly_using_command hijack' --long-option build --description 'Build number within the job, or global build ID'
 complete --command fly --condition '__fish_fly_using_command hijack' --long-option step --description 'Name of step to hijack (e.g. build, unit, resource name)'
 complete --command fly --condition '__fish_fly_using_command hijack' --long-option attempt --description 'Attempt number of step to hijack. Can be specified multiple times for nested retries'
+
+complete --command fly --condition '__fish_fly_using_command execute' --long-option config --require-parameter --description "The task config to execute"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option privileged --description "Run the task with full privileges"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option exclude-ignored --description "Skip uploading .gitignored paths. This uses the file paths that are in your Git index. Make sure it's up to date!"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option input=NAME=PATH --exclusive --description "An input to provide to the task (can be specified multiple times)"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option inputs-from=PIPELINE/JOB --exclusive --description "A job to base the inputs on"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option output=NAME=PATH --exclusive --description "An output to fetch from the task (can be specified multiple times)"
+complete --command fly --condition '__fish_fly_using_command execute' --long-option tag=TAG --exclusive --description "A tag for a specific environment (can be specified multiple times)"
