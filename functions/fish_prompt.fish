@@ -16,6 +16,7 @@ set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
 function fish_prompt --description "Write out the prompt"
+    set -l last_status $status
     set -l color_cwd
     set -l suffix
     switch "$USER"
@@ -31,5 +32,10 @@ function fish_prompt --description "Write out the prompt"
             set suffix '>'
     end
 
-    echo -n -s (prompt_hostname) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) (__fish_git_prompt) "$suffix "
+    set -l prompt_status
+    if test $last_status -ne 0
+        set prompt_status ' ' (set_color $fish_color_error) "[$last_status]" (set_color normal)
+    end
+
+    echo -n -s (prompt_hostname) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) (__fish_git_prompt) $prompt_status "$suffix "
 end
