@@ -1,4 +1,4 @@
-set -x EDITOR "gvim -f"
+set -x EDITOR gvim -f
 
 complete -f -c git -n '__fish_git_using_command pull' -l ff-only -d 'Refuse to merge unless fast-forward possible'
 complete -f -c git -n '__fish_git_using_command pull' -l rebase -d 'Rebase instead of merge'
