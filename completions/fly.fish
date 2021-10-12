@@ -3,7 +3,7 @@ function __fish_fly_targets
 end
 
 function __fish_fly_commands
-	fly --help ^| sed -n '/Available commands:/,$p' | sed -E -n 's/  ([-[:alpha:]]+).*/\1/p'
+	fly --help &| sed -n '/Available commands:/,$p' | sed -E -n 's/  ([-[:alpha:]]+).*/\1/p'
 end
 
 function __fish_fly_targeted

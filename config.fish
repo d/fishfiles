@@ -5,7 +5,7 @@ complete -f -c git -n '__fish_git_using_command pull' -l rebase -d 'Rebase inste
 complete -c git -n '__fish_git_using_command commit' -s v -l verbose -d 'Show diff in commit message template'
 complete -c git -n '__fish_git_using_command commit' -s a -l all -d 'Commit all changed files'
 
-if type --force-path direnv > /dev/null;
+if type --force-path direnv &> /dev/null;
 	eval (direnv hook fish)
 end
 
