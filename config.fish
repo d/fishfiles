@@ -9,6 +9,10 @@ if type --force-path direnv &> /dev/null;
 	eval (direnv hook fish)
 end
 
+if not type --force-path brew &> /dev/null; and test -e /opt/homebrew/bin/brew;
+	eval (/opt/homebrew/bin/brew shellenv fish)
+end
+
 if test -d ~/.rbenv/shims;
 	set PATH ~/.rbenv/shims $PATH
 end
